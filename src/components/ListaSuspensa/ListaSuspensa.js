@@ -10,7 +10,7 @@ export const ListaSuspensa = (props) => {
           props.aoAlterado(evento.target.value);
         }}>
         {props.itens.map((item) => (
-          <option key={item.nome}>{item.nome}</option>
+          <option key={item}>{item}</option>
         ))}
       </select>
     </div>
