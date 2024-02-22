@@ -4,9 +4,7 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import './Formulario.css';
 
-export const Formulario = () => {
-  const times = ['Programação', 'Front-End', 'Data-Science', 'Devops', 'UX e Design', 'Mobile', 'Inovação'];
-
+export const Formulario = (props) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
@@ -14,8 +12,8 @@ export const Formulario = () => {
 
   const aoSalvar = (event) => {
     event.preventDefault();
-
     console.log('Foi Submetido =>', nome, cargo, imagem, time);
+    props.aoColaboradorCadastrado({ nome, cargo, imagem, time });
   };
 
   return (
@@ -42,8 +40,14 @@ export const Formulario = () => {
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
         />
-        <ListaSuspensa required={true} label='Time' itens={times} valor={time} aoAlterado={(valor) => setTime(valor)} />
-        <Botao texto='Criar Card'>Criar Card</Botao>
+        <ListaSuspensa
+          required={true}
+          label='Time'
+          itens={props.times}
+          valor={time}
+          aoAlterado={(valor) => setTime(valor)}
+        />
+        <Botao>Criar Card</Botao>
       </form>
     </section>
   );

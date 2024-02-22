@@ -8,8 +8,7 @@ export const ListaSuspensa = (props) => {
         required={props.required}
         onChange={(evento) => {
           props.aoAlterado(evento.target.value);
-        }}
-        value={props.value}>
+        }}>
         {props.itens.map((item) => (
           <option key={item}>{item}</option>
         ))}
