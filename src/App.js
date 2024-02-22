@@ -4,7 +4,39 @@ import Formulario from './components/Formulario';
 import Time from './components/Time';
 
 function App() {
-  const times = ['Programação', 'Front End', 'Data Science', 'DevOps', 'UX e Design', 'Mobile', 'Inovação'];
+  const times = [
+    {
+      nome: 'Front-End',
+      corPrimaria: '#82CFFA',
+      corSecundaria: '#E8F8FF',
+    },
+    {
+      nome: 'Data Sciense',
+      corPrimaria: '#A6D157',
+      corSecundaria: '#F0F8E2',
+    },
+    {
+      nome: 'Devops',
+      corPrimaria: '#E06B69',
+      corSecundaria: '#FDE7E8',
+    },
+    {
+      nome: 'UX e Design',
+      corPrimaria: '#D86EBF',
+      corSecundaria: '#FAE5F5',
+    },
+    {
+      nome: 'Mobile',
+      corPrimaria: '#FEBA05',
+      corSecundaria: '#FFF5D9',
+    },
+    {
+      nome: 'Inovação e Gestão',
+      corPrimaria: '#FF8A29',
+      corSecundaria: '#FFEEDF',
+    },
+  ];
+
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
@@ -17,7 +49,7 @@ function App() {
       <Banner />
       <Formulario times={times} aoColaboradorCadastrado={(colaborador) => aoNovoColaboradorAdicionado(colaborador)} />
       {times.map((time) => (
-        <Time nome={time} />
+        <Time nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />
       ))}
     </div>
   );
