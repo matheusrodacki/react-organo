@@ -14,6 +14,10 @@ export const Formulario = (props) => {
     event.preventDefault();
     console.log('Foi Submetido =>', nome, cargo, imagem, time);
     props.aoColaboradorCadastrado({ nome, cargo, imagem, time });
+    setNome('');
+    setCargo('');
+    setImagem('');
+    setTime('');
   };
 
   return (
