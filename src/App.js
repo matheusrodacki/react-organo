@@ -7,6 +7,11 @@ import { Rodape } from './components/Rodape/Rodape';
 function App() {
   const times = [
     {
+      nome: 'Programação',
+      corPrimaria: '#57C278',
+      corSecundaria: '#D9F7E9',
+    },
+    {
       nome: 'Front-End',
       corPrimaria: '#82CFFA',
       corSecundaria: '#E8F8FF',
@@ -41,7 +46,7 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaboradores);
+    debugger;
     setColaboradores([...colaboradores, colaborador]);
   };
 
@@ -54,6 +59,7 @@ function App() {
       />
       {times.map((time) => (
         <Time
+          key={time.nome}
           nome={time.nome}
           corPrimaria={time.corPrimaria}
           corSecundaria={time.corSecundaria}
