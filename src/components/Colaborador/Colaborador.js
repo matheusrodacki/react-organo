@@ -7,6 +7,11 @@ export const Colaborador = ({ id, nome, imagem, cargo, favorito, corDeFundo, aoD
     aoFavoritar(id);
   }
 
+  const propsFavorito = {
+    size: 25,
+    onClick: favoritar,
+  };
+
   return (
     <div className='colaborador'>
       <IoMdCloseCircle size={25} className='deletar' onClick={() => aoDeletar(id)} />
@@ -17,7 +22,7 @@ export const Colaborador = ({ id, nome, imagem, cargo, favorito, corDeFundo, aoD
         <h4>{nome}</h4>
         <h5>{cargo}</h5>
         <div className='favoritar'>
-          {favorito ? <FaHeart size={25} onClick={favoritar} /> : <FaRegHeart size={25} onClick={favoritar} />}
+          {favorito ? <FaHeart {...propsFavorito} color='#ff0000' /> : <FaRegHeart {...propsFavorito} />}
         </div>
       </div>
     </div>
