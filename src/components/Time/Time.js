@@ -12,7 +12,7 @@ export const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
           value={time.cor}
           type='color'
           className='input-cor'
-          onChange={(event) => mudarCor(event.target.value, time.nome)}
+          onChange={(event) => mudarCor(event.target.value, time.id)}
         />
         <h3 style={{ borderColor: time.cor }}>{time.nome}</h3>
         <div className='colaboradores'>
@@ -20,6 +20,7 @@ export const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
             return (
               <Colaborador
                 key={colaborador.nome}
+                id={colaborador.id}
                 nome={colaborador.nome}
                 cargo={colaborador.cargo}
                 imagem={colaborador.imagem}
