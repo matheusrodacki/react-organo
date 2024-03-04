@@ -218,13 +218,16 @@ function App() {
   const [colaboradores, setColaboradores] = useState(inicial);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger;
-    setColaboradores([...colaboradores, colaborador]);
+    setColaboradores([...colaboradores, { ...colaborador, id: uuid() }]);
   };
 
   function deletarColaborador(id) {
     setColaboradores(colaboradores.filter((colaborador) => colaborador.id !== id));
   }
+
+  const aoNovoTimeAdicionado = (time) => {
+    setTimes([...times, { ...time, id: uuid() }]);
+  };
 
   function mudarCorDoTime(cor, id) {
     setTimes(
@@ -243,6 +246,7 @@ function App() {
       <Formulario
         times={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) => aoNovoColaboradorAdicionado(colaborador)}
+        aoCadastrarTime={(time) => aoNovoTimeAdicionado(time)}
       />
       <section className='times'>
         <h1>Minha organização</h1>

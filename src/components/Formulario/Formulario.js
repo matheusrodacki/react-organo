@@ -9,6 +9,8 @@ export const Formulario = (props) => {
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
+  const [nomeTime, setNomeTime] = useState('');
+  const [corTime, setCorTime] = useState('');
 
   const aoSalvar = (event) => {
     event.preventDefault();
@@ -44,14 +46,31 @@ export const Formulario = (props) => {
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
         />
-        <ListaSuspensa
-          required={true}
-          label='Time'
-          itens={props.times}
-          valor={time}
-          aoAlterado={(valor) => setTime(valor)}
-        />
+        <ListaSuspensa required label='Time' itens={props.times} valor={time} aoAlterado={(valor) => setTime(valor)} />
         <Botao>Criar Card</Botao>
+      </form>
+      <form
+        className='formulario'
+        onSubmit={(event) => {
+          event.preventDefault();
+          props.aoCadastrarTime({ nome: nomeTime, cor: corTime });
+        }}>
+        <h2>Preencha os dados para criar um novo time</h2>
+        <CampoTexto
+          required
+          label='Nome'
+          placeholder='Digite o nome do time'
+          valor={nomeTime}
+          aoAlterado={(valor) => setNomeTime(valor)}
+        />
+        <CampoTexto
+          required
+          label='Cor'
+          placeholder='Digite a cor do time'
+          valor={corTime}
+          aoAlterado={(valor) => setCorTime(valor)}
+        />
+        <Botao>Criar time</Botao>
       </form>
     </section>
   );
